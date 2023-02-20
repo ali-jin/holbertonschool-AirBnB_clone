@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from uuid import uuid4
+import uuid
 from datetime import datetime
 
 
@@ -7,8 +7,8 @@ class BaseModel:
     """"Class that defines all common
     attributes/methods for other classes
     """
-    def __init__(self):
-        self.id = str(uuid4())
+    def __init__(self, id=None, created_at=None, updated_at=None):
+        self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
 
