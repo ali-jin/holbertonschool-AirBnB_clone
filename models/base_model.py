@@ -7,10 +7,18 @@ class BaseModel:
     """"Class that defines all common
     attributes/methods for other classes
     """
-    def __init__(self):
-        self.id = str(uuid4())
+    def __init__(self, id=None, created_at=None, updated_at=None):
+        self.id = id
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
+
+    @property
+    def id(self):
+        return str(uuid4())
+
+    @id.setter
+    def id(self, value):
+        self.id = value
 
     def save(self):
         self.updated_at = datetime.now()
