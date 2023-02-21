@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+    Program that contains the entry point of the command interpreter :
+    the HBnB Console .
+"""
 import cmd
 import sys
 
@@ -19,6 +23,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
+        """ Do nothing when an empty line is received """
         pass
 
     
