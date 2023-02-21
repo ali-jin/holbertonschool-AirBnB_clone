@@ -2,6 +2,7 @@
 """ FileStorage class """
 import json
 from os import path
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -19,16 +20,17 @@ class FileStorage:
     def save(self):
         new_dict = {}
 
-        for key, value in self.__objects.items():
-            new_dict[key] = value.to_dict()
+        for key, value in FileStorage.__objects.items():
+                new_dict.update({key: value.to_dict()})
 
-            with open(self.__file_path, "w", encoding="utf-8") as file:
-                json.dump(new_dict, file)
+        with open(self.__file_path, "w", encoding="utf-8") as file:
+            file.write(json.dumps(new_dict))
 
     def reload(self):
         try:
-            if path.isfile('__file_path') == True:
-                with open(self.__file_path, "r", encoding="utf-8") as file:
-                    json.loads(file)
+            with open(FileStorage.__file_path, encoding="utf-8") as file:
+                new_dict = json.load(file)
+                for key, value in new_dict.items():
+                    FileStorage.__objects[key] = eval(value["__class__"] + '(**value)')
         except FileNotFoundError:
             pass
