@@ -1,6 +1,6 @@
 # Project AirBnB clone - The console
 
-![img](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20230222%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20230222T140234Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=c3554c6ee8d5266896e0555bd009993b6fbeffb8a52a5697f9d05c415cfd6c17)
+![img](https://cdn.thenewstack.io/media/2021/11/ab06a958-pythonlogo.png)
 
 ## Description
 The console is the first step to the project of AirBnB clone, it will manipulate a powerful storage system. The console can create a data modele, manage objects via a console / command interpreter and store and persist objects to a file (JSON file).
