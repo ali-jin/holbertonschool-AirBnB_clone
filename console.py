@@ -23,7 +23,7 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnb) "
     file = None
-    classes = ("BaseModel", "User")
+    classes = ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]
 
     def do_quit(self, line):
         """ quit command to exit the program """
@@ -37,7 +37,6 @@ class HBNBCommand(cmd.Cmd):
         """ Do nothing when an empty line is received """
         pass
 
-    
     def help_quit(self):
         """ help for quit """
         print("Quit command to exit the program\n")
