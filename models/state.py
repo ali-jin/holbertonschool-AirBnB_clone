@@ -9,5 +9,5 @@ class State(BaseModel):
     """
     Class State inhérits from BaseModel
     """
-    
+
     name = ""
