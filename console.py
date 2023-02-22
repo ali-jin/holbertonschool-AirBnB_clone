@@ -109,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
         if arg and arg not in self.classes:
             print ("** class doesn't exist **")
         elif not arg:
-            print("{}".format(models.storage.all))
+            print("{}".format(models.storage.all()))
         else:
             for key in models.storage.all().keys():
                 if key[0] == arg[0]:
