@@ -3,7 +3,9 @@ import os.path
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 from models import storage
+import json
 
+file = FileStorage._FileStorage__file_path
 
 class TestFileStorage(unittest.TestCase):
     def test_file_path(self):
@@ -41,5 +43,13 @@ class TestFileStorage(unittest.TestCase):
         model = BaseModel()
         FileStorage.reload(FileStorage)
         self.assertNotEqual(objects, obj)
+
+    def test_init(self):
+        f = FileStorage()
+        obj, path = f._FileStorage__objects, f._FileStorage__file_path
+
+        self.assertIsInstance(obj, dict)
+        self.assertIsInstance(path, str)
+
 
 
