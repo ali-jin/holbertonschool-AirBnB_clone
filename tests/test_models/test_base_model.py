@@ -3,6 +3,10 @@ from models.base_model import BaseModel
 from datetime import datetime
 import os.path
 from models.engine.file_storage import FileStorage
+import models
+
+
+objects = FileStorage._FileStorage__objects
 
 
 class testBaseModel(unittest.TestCase):
@@ -35,3 +39,15 @@ class testBaseModel(unittest.TestCase):
         self.assertIn('id', model_str)
         self.assertIn(str(self.model.id), model_str)
         self.assertIn(str(self.model.__dict__), model_str)
+
+    def test_save2(self):
+        model = BaseModel()
+        x = model.updated_at
+        model.save()
+        y = model.updated_at
+        self.assertNotEqual(x, y)
+        os.remove("file.json")
+       
+
+    if __name__ == '__main__':
+        unittest.main()
