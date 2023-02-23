@@ -33,4 +33,4 @@ class TestFileStorage(unittest.TestCase):
             obj = all_objs[obj_id]
         print(obj)
         self.assertIsNotNone(obj)
-    
+
