@@ -50,6 +50,3 @@ class TestFileStorage(unittest.TestCase):
 
         self.assertIsInstance(obj, dict)
         self.assertIsInstance(path, str)
-
-
-

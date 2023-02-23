@@ -39,7 +39,7 @@ class FileStorage:
         """deserializes the JSON file to __objects
         """
         try:
-            with open(FileStorage.__file_path, encoding="utf-8") as file:
+            with open(FileStorage.__file_path, 'r') as file:
                 new_dict = json.load(file)
                 cls = "__class__"
                 for key, value in new_dict.items():
