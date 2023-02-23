@@ -47,6 +47,15 @@ class testBaseModel(unittest.TestCase):
         y = model.updated_at
         self.assertNotEqual(x, y)
         os.remove("file.json")
+
+    def test_save_with_reload(self):
+        self.assertEqual(os.path.isfile("file.json"), False)
+        obj = FileStorage._FileStorage__objects.copy()
+        model = BaseModel()
+        model.save()
+        self.assertNotEqual(obj, FileStorage._FileStorage__objects)
+        self.assertEqual(os.path.isfile("file.json"), True)
+        os.remove("file.json")
        
 
     if __name__ == '__main__':
