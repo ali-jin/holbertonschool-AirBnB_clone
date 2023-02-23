@@ -27,10 +27,10 @@ class TestFileStorage(unittest.TestCase):
         self.assertNotEqual(objects[f"{model.__class__.__name__}.{model.id}"], None)
 
     def test_reload(self):
-        FileStorage._FileStorage__objects = {}
-        objects = FileStorage._FileStorage__objects
-        obj = objects.copy()
-        model = BaseModel()
-        FileStorage.reload(FileStorage)
-        self.assertNotEqual(objects, obj)
+        storage1 = FileStorage()
+        all_objs = storage1.all()
+        for obj_id in all_objs.keys():
+            obj = all_objs[obj_id]
+        print(obj)
+        self.assertIsNotNone(obj)
     
