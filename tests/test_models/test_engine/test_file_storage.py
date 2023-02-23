@@ -9,7 +9,7 @@ class TestFileStorage(unittest.TestCase):
     def test_file_path(self):
         model = BaseModel()
         model.save()
-        self.assertEquals(FileStorage._FileStorage__file_path, "file.json")
+        self.assertEqual(FileStorage._FileStorage__file_path, "file.json")
         os.remove("file.json")
 
     def test_all(self):
@@ -24,7 +24,7 @@ class TestFileStorage(unittest.TestCase):
         objects = FileStorage._FileStorage__objects
         model = BaseModel()
         FileStorage.new(FileStorage, model)
-        self.assertNotEquals(objects[f"{model.__class__.__name__}.{model.id}"], None)
+        self.assertNotEqual(objects[f"{model.__class__.__name__}.{model.id}"], None)
 
     def test_reload(self):
         FileStorage._FileStorage__objects = {}
