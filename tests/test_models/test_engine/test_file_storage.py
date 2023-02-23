@@ -19,4 +19,9 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(type(instances_dic), dict)
         self.assertIs(instances_dic, storage._FileStorage__objects)
 
-    
+    def test_new(self):
+        FileStorage._FileStorage__objects = {}
+        objects = FileStorage._FileStorage__objects
+        model = BaseModel()
+        FileStorage.new(FileStorage, model)
+        self.assertNotEquals(objects[f"{model.__class__.__name__}.{model.id}"], None)
