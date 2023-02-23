@@ -51,14 +51,14 @@ class TestFileStorage(unittest.TestCase):
         self.assertIsInstance(obj, dict)
         self.assertIsInstance(path, str)
 
-    """def test_save_with_reload(self):
+    def test_save_with_reload(self):
         self.assertEqual(os.path.isfile("file.json"), False)
         obj = FileStorage._FileStorage__objects.copy()
         model = BaseModel()
         model.save()
         self.assertNotEqual(obj, FileStorage._FileStorage__objects)
         self.assertEqual(os.path.isfile("file.json"), True)
-        os.remove("file.json")"""
+        os.remove("file.json")
 
     def test_reload2(self):
         with self.assertRaises(TypeError):
