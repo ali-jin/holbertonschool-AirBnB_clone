@@ -59,3 +59,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertNotEqual(obj, FileStorage._FileStorage__objects)
         self.assertEqual(os.path.isfile("file.json"), True)
         os.remove("file.json")
+
+    def test_reload2(self):
+        with self.assertRaises(TypeError):
+            storage.reload(None)
