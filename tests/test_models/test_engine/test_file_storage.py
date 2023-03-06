@@ -50,3 +50,27 @@ class TestFileStorage(unittest.TestCase):
 
         self.assertIsInstance(obj, dict)
         self.assertIsInstance(path, str)
+
+    def test_reload2(self):
+        with self.assertRaises(TypeError):
+            storage.reload(None)
+
+    def test_reload3(self):
+        test_dict = {"BaseModel.0001": {"id": "0001", "created_at": "2023-02-23T23:10:06.000000", "updated_at": "2023-02-23T23:10:06.000000", "__class__": "BaseModel"}}
+        with open(FileStorage._FileStorage__file_path, "w") as f:
+            json.dump(test_dict, f)
+
+        fs = FileStorage()
+        fs.reload()
+
+        loaded_obj = fs.all()["BaseModel.0001"]
+        self.assertIsInstance(loaded_obj, BaseModel)
+        self.assertEqual(loaded_obj.id, "0001")
+        self.assertEqual(str(loaded_obj.created_at), "2023-02-23 23:10:06")
+        self.assertEqual(str(loaded_obj.updated_at), "2023-02-23 23:10:06")
+
+        import os
+        os.remove(FileStorage._FileStorage__file_path)
+
+if __name__ == '__main__':
+    unittest.main()
