@@ -1,0 +1,21 @@
+.places h1 {
+    font-size: 30px;
+    margin: 35px 0 0 20px;
+}
+
+.places article {
+    width: 390px;
+    margin: 20px;
+    padding: 20px;
+    display: inline-block;
+    border: solid #FF5A5F 1px;
+    border-radius: 4px;
+}
+
+.places article h2 {
+
+}
+
+article:last-child {
+    margin-left: 20%;
+}
